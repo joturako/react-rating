@@ -1,12 +1,20 @@
-# ReactSwipe
-基于react的左右滑动控件, inspired by iScroll
+# ReactRating
+基于react的rate控件，可以用来rate**任何值**，并且用法超简单!!
 
-##[DEMO](http://eeandrew.github.io/demos/reactswipe/index.html)
 
-![image](https://github.com/eeandrew/ReadmeResource/blob/master/img/reactswipe/react-swipe-demo.gif)
+![image](https://github.com/eeandrew/ReadmeResource/blob/master/img/react-rating/react-rating.jpg)
 
-##TODO
-基于react的state数据改变来渲染dom，在手机上实测动画非常卡。
-* 提升动画流畅度
-* 提供滑动位置接口
-* 提供style更改接口
+## 使用
+```
+<ReactRating  rate={3.5}/>
+
+```
+
+## 更多配置
+```
+raterDim : 用于配置五角星的直径
+rate : 你想要展示的rate值
+activeColor : 点亮的五角星的颜色
+inactiveColor : 不被点亮的五角星的颜色
+raterBg : 设置整个控件的背景色
+```
