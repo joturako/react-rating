@@ -1,0 +1,10 @@
+.slide-handle {
+	width:100%;
+	top:0;
+	left:0;
+	height:100px;
+	border: 1px solid;
+	background: #eee;
+	box-sizing:border-box;
+	margin-bottom:10px;
+}
