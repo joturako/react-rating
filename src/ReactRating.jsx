@@ -12,7 +12,7 @@ export default class ReactRating extends React.Component {
 	}
 
 	componentWillMount() {
-		let totalStarCount = this.props.starCount
+		let totalStarCount = Math.max(Math.ceil(this.props.rate), this.props.total)
 		let rating = this.props.rate / totalStarCount * 100
 		this.setState({
 			totalWidth : totalStarCount * this.props.raterDim,
@@ -72,7 +72,7 @@ export default class ReactRating extends React.Component {
 ReactRating.propTypes = {
 	raterDim : React.PropTypes.number.isRequired,
 	rate : React.PropTypes.number,
-	starCount : React.PropTypes.number,
+	total : React.PropTypes.number,
 	activeColor : React.PropTypes.string,
 	inactiveColor : React.PropTypes.string,
 	raterBg : React.PropTypes.string,
@@ -81,7 +81,7 @@ ReactRating.propTypes = {
 ReactRating.defaultProps = {
 	raterDim : 20,
 	rate: 4.8,
-    starCount: 5,
+    total: 5,
 	activeColor : 'gold',
 	inactiveColor : '#bebebe',
 	raterBg : '#fff',
