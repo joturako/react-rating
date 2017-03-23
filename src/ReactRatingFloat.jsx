@@ -5,24 +5,27 @@ export default class ReactRatingFloat extends React.Component {
 
   constructor() {
     super();
+
     this.state = {
       totalWidth: 0,
-      rating: 0
+      rating: 0,
+      totalStarCount: 0
     };
     this.getStars = this.getStars.bind(this);
   }
 
   componentWillMount() {
-    let totalStarCount = Math.max(Math.ceil(this.props.rate), this.props.total);
+    const totalStarCount = Math.max(Math.ceil(this.props.rate), this.props.total);
     let rating = (this.props.rate / totalStarCount) * 100;
     this.setState({
+      totalStarCount,
       totalWidth: totalStarCount * this.props.raterDim,
       rating
     });
   }
 
   componentDidMount() {
-    for (let i=0; i<Math.ceil(this.props.rate); i++) {
+    for (let i=0; i<this.state.totalStarCount; i++) {
       StarDrawer.emptyStar(this.refs['rater-' + i].getContext('2d'), this.props.raterDim/2, this.props.raterBg);
     }
   }
@@ -31,9 +34,10 @@ export default class ReactRatingFloat extends React.Component {
     let stars = [];
     let starStyle = {
       display: 'inline-block',
-      zIndex: '1'
+      zIndex: '1',
+      verticalAlign: 'baseline'
     };
-    for (let i=0; i<Math.ceil(this.props.rate); i++) {
+    for (let i=0; i<this.state.totalStarCount; i++) {
       let raterRef = 'rater-'+i;
       stars.push(<canvas key={i} ref={raterRef} width={this.props.raterDim} height={this.props.raterDim} style={starStyle} />);
     }
