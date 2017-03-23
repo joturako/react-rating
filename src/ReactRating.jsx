@@ -80,9 +80,9 @@ ReactRating.propTypes = {
 
 ReactRating.defaultProps = {
 	raterDim : 20,
-	rate: 4.8,
-    total: 5,
-	activeColor : 'gold',
+	rate: 0.5,
+    total: 1,
+	activeColor : '#FFB600',
 	inactiveColor : '#bebebe',
 	raterBg : '#fff',
 }

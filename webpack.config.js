@@ -1,10 +1,10 @@
 module.exports = {
 	context : __dirname + '/src',
 	entry : [
-		'./main.jsx'
+		'./ReactRating.jsx'
 	],
 	output : {
-		path: __dirname + '/assets/',
+		path: __dirname + '/dist/',
 		filename: 'bundle.js',
 	},
 	module: {
