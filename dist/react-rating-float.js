@@ -86,7 +86,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _this.state = {
 	      totalWidth: 0,
-	      rating: 0
+	      rating: 0,
+	      totalStarCount: 0
 	    };
 	    _this.getStars = _this.getStars.bind(_this);
 	    return _this;
@@ -98,6 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var totalStarCount = Math.max(Math.ceil(this.props.rate), this.props.total);
 	      var rating = this.props.rate / totalStarCount * 100;
 	      this.setState({
+	        totalStarCount: totalStarCount,
 	        totalWidth: totalStarCount * this.props.raterDim,
 	        rating: rating
 	      });
@@ -105,7 +107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      for (var i = 0; i < Math.ceil(this.props.rate); i++) {
+	      for (var i = 0; i < this.state.totalStarCount; i++) {
 	        _ShapeDrawer.StarDrawer.emptyStar(this.refs['rater-' + i].getContext('2d'), this.props.raterDim / 2, this.props.raterBg);
 	      }
 	    }
@@ -115,9 +117,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var stars = [];
 	      var starStyle = {
 	        display: 'inline-block',
-	        zIndex: '1'
+	        zIndex: '1',
+	        verticalAlign: 'baseline'
 	      };
-	      for (var i = 0; i < Math.ceil(this.props.rate); i++) {
+	      for (var i = 0; i < this.state.totalStarCount; i++) {
 	        var raterRef = 'rater-' + i;
 	        stars.push(_react2.default.createElement('canvas', { key: i, ref: raterRef, width: this.props.raterDim, height: this.props.raterDim, style: starStyle }));
 	      }
@@ -199,7 +202,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ctx.width = dim;
 	    ctx.height = dim;
 	    ctx.fillStyle = backColor;
-	    ctx.fillRect(0, 0, dim, dim);
+	    ctx.fillRect(-1, -1, dim + 1, dim + 1);
 	    ctx.restore();
 	  },
 	  _star: function _star(empty, ctx, x, y, r, p, m, style) {

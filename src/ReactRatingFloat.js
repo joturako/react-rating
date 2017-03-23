@@ -30,7 +30,8 @@ var ReactRatingFloat = function (_React$Component) {
 
     _this.state = {
       totalWidth: 0,
-      rating: 0
+      rating: 0,
+      totalStarCount: 0
     };
     _this.getStars = _this.getStars.bind(_this);
     return _this;
@@ -42,6 +43,7 @@ var ReactRatingFloat = function (_React$Component) {
       var totalStarCount = Math.max(Math.ceil(this.props.rate), this.props.total);
       var rating = this.props.rate / totalStarCount * 100;
       this.setState({
+        totalStarCount: totalStarCount,
         totalWidth: totalStarCount * this.props.raterDim,
         rating: rating
       });
@@ -49,7 +51,7 @@ var ReactRatingFloat = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      for (var i = 0; i < Math.ceil(this.props.rate); i++) {
+      for (var i = 0; i < this.state.totalStarCount; i++) {
         _ShapeDrawer.StarDrawer.emptyStar(this.refs['rater-' + i].getContext('2d'), this.props.raterDim / 2, this.props.raterBg);
       }
     }
@@ -59,9 +61,10 @@ var ReactRatingFloat = function (_React$Component) {
       var stars = [];
       var starStyle = {
         display: 'inline-block',
-        zIndex: '1'
+        zIndex: '1',
+        verticalAlign: 'baseline'
       };
-      for (var i = 0; i < Math.ceil(this.props.rate); i++) {
+      for (var i = 0; i < this.state.totalStarCount; i++) {
         var raterRef = 'rater-' + i;
         stars.push(_react2.default.createElement('canvas', { key: i, ref: raterRef, width: this.props.raterDim, height: this.props.raterDim, style: starStyle }));
       }

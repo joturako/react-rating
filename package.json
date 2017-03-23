@@ -1,6 +1,6 @@
 {
     "name": "react-rating-float",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "description": "React Rating Maintained by Luong",
     "main": "/dist/react-rating-float.min.js",
     "scripts": {
