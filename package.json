@@ -1,6 +1,6 @@
 {
     "name": "react-rating-float",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "React Rating Maintained by Luong",
     "main": "/dist/react-rating-float.min.js",
     "scripts": {
@@ -45,8 +45,7 @@
         "webpack": "^1.13.2",
         "webpack-umd-external": "^1.0.2"
     },
-    "dependencies": {
-        "classnames": "^2.2.0",
+    "peerDependencies": {
         "react": "^15.4.2"
     }
 }
