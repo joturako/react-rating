@@ -3,7 +3,7 @@ Component to let you display star rating with float number support
 
 ## Installation
 
-`npm i react-rating`
+`npm i react-rating-float`
 
 ## Example
 ```
