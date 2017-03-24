@@ -5,7 +5,7 @@ const StarDrawer = {
     ctx.width = dim;
     ctx.height = dim;
     ctx.fillStyle = backColor;
-    ctx.fillRect(-1, -1, dim+1, dim+1);
+    ctx.fillRect(0, 0, dim, dim);
     ctx.restore();
   },
   _star(empty, ctx, x, y, r, p, m, style) {
